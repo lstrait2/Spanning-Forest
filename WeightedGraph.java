@@ -2,17 +2,17 @@ import java.io.*;
 import java.util.*;
 
 
-public class Graph
+public class WeightedGraph
 {
 	static class Node
 	{
 		final int index;
 		Node ancestor;
 	
-		Node(int indx)
+		Node(int index)
 		{
 			this.index = index;
-			ancestor = this
+			ancestor = this;
 		}
 		
 
@@ -23,24 +23,25 @@ public class Graph
 	{
 		final Node u, v;
 		boolean inSF = false;
-		
-		Edge(Node u, Node v)
+		int weight;
+		Edge(Node u, Node v, int w)
 		{
 			this.u = u;
 			this.v = v;
+			this.weight = w;
 		}
 
 	}
 
 	
 
-	ArrayList<Edge> edges = new ArrayList<>();
-	nodes = new Node(0)
+	ArrayList<Edge> edges;
+	Node[] nodes;
 
 	public Graph()
 	{
 		edges = new ArrayList<>();
-		nodes = new Node(0);
+		nodes = new Node[0];
 	}
 	
 	static Graph readEdgeGraph(String file) throws IOException
@@ -71,11 +72,12 @@ public class Graph
 			
 			int u = Integer.parseInt(words[0]);
 			int v = Integer.parseInt(words[1]);
+			int w = Integer.parseInt(words[2]);
 
 			Node U = g.getVertex(u);
 			Node V = g.getVertex(v);
 		
-			g.addEdge(U,V);
+			g.addEdge(U,V,w);
 		}
 		return g;
 	}
@@ -93,7 +95,7 @@ public class Graph
 
 	public void addEdge(Node u, Node v)
 	{
-		edge = new Edge(u,v);
+		Edge edge = new Edge(u,v);
 		edges.add(edge);
 	}
 
