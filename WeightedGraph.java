@@ -4,6 +4,7 @@ import java.util.*;
 
 public class WeightedGraph
 {
+	/*
 	static class Node
 	{
 		final int index;
@@ -17,8 +18,9 @@ public class WeightedGraph
 		
 
 	}
+	*/
 
-
+	/*
 	static class Edge implements Comparable<Edge>
 	{
 		final Node u, v;
@@ -39,6 +41,7 @@ public class WeightedGraph
 		}
 
 	}
+	*/
 
 	
 
@@ -51,13 +54,13 @@ public class WeightedGraph
 		nodes = new Node[0];
 	}
 	
-	static WeightedGraph readEdgeGraph(String file) throws IOException
+	static WeightedGraph readWeightedEdgeGraph(String file) throws IOException
 	{
 		BufferedReader reader = new BufferedReader(new FileReader(file));
 		
 		WeightedGraph g = new WeightedGraph();
 		
-		if(!"EdgeArray".equals(reader.readLine()))
+		if(!"WeightedEdgeArray".equals(reader.readLine()))
 			throw new IOException("invalid edge graph format");
 
 		while(true)
@@ -74,12 +77,12 @@ public class WeightedGraph
 				break;
 			
 			String[] words = line.split("[ \t]+");
-			if(words.length != 2)
+			if(words.length != 3)
 				throw new IOException("invalid edge graph format");
 			
 			int u = Integer.parseInt(words[0]);
 			int v = Integer.parseInt(words[1]);
-			int w = Integer.parseInt(words[2]);
+			double w = Double.parseDouble(words[2]);
 
 			Node U = g.getVertex(u);
 			Node V = g.getVertex(v);
@@ -100,7 +103,7 @@ public class WeightedGraph
 		return nodes[n];
 	}
 
-	public void addEdge(Node u, Node v, int w)
+	public void addEdge(Node u, Node v, double w)
 	{
 		Edge edge = new Edge(u,v,w);
 		edges.add(edge);

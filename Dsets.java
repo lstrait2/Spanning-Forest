@@ -12,7 +12,7 @@ public class Dsets
 
 	}
 
-	private int find(int elem)
+	public int find(int elem)
 	{
 		if(this.elements[elem] < 0)
 			return elem;
@@ -20,7 +20,7 @@ public class Dsets
 		return elements[elem] = find(elements[elem]);
 	}
 
-	private void merge(int a, int b)
+	public void merge(int a, int b)
 	{
 		int r1 = find(a);
 		int r2 = find(b);
