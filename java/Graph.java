@@ -9,13 +9,6 @@ public class Graph {
         Node ancestor;
         
         Node(int index) {
-            super();
-            {
-            }
-            {
-            }
-            {
-            }
             this.index = index;
             ancestor = this;
         }
@@ -28,12 +21,6 @@ public class Graph {
         
         Edge(Node u, Node v) {
             super();
-            {
-            }
-            {
-            }
-            {
-            }
             this.u = u;
             this.v = v;
         }
@@ -43,12 +30,6 @@ public class Graph {
     
     public Graph() {
         super();
-        {
-        }
-        {
-        }
-        {
-        }
         edges = new ArrayList<Graph.Edge>();
         nodes = new Node[0];
     }
