@@ -14,10 +14,6 @@ class Check extends Msg1Arg<Graph.Edge[]> {
         {
             this.$DPJ_rgn_REdges = $DPJ_rgn_REdges;
         }
-        {
-        }
-        {
-        }
     }
     
     private static Graph.Node ancestorOf(final Graph.Node u, HashMap<Graph.Node, Graph.Node> newAncestors) {
