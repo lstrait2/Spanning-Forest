@@ -8,14 +8,7 @@ public class SpanningForest extends Msg0Arg {
     
     public SpanningForest() {
         super(dpj.runtimeeffects.Effects.PURE);
-        {
-        }
-        {
-        }
-        {
-            readGraph = new Task0Arg<Graph>(new dpj.runtimeeffects.Effect[]{new dpj.runtimeeffects.Effect.WriteEffect(dpj.runtimeeffects.RPLs.ROOT_STAR)}){
-                
-                
+            readGraph = new Task0Arg<Graph>(new dpj.runtimeeffects.Effect[]{new dpj.runtimeeffects.Effect.WriteEffect(dpj.runtimeeffects.RPLs.ROOT_STAR)}){     
                 public Graph run() {
                     try {
                         return Graph.readEdgeGraph(TaskMain.args[0]);
@@ -98,7 +91,7 @@ public class SpanningForest extends Msg0Arg {
             }
         };
     }
-    
+
     private final Msg0Arg getSF(final Graph g) {
         return new Msg0Arg(new dpj.runtimeeffects.Effect[]{new dpj.runtimeeffects.Effect.ReadEffect(dpj.runtimeeffects.RPLs.ROOT_STAR)}){
             
